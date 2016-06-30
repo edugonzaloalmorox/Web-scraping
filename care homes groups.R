@@ -148,13 +148,36 @@ groups =  groups %>% select(`new_var.1`) #data.frame taht contains the names of 
 names(groups)[1] <- "care_group"
 
 
-# 
-
-
 # 3. Link names and number and type of care homes
 # -----------------------------------------------
 
 care_uk = data.frame(groups, check, check.1)
+
+
+care_uk = read.csv("care_uk.csv", quote='', sep = "," , header = TRUE)
+
+# cleaning 
+library(stringr)
+care_uk = apply(care_uk, 2, function(x) str_replace_all(x, "[^[:alnum:]]", " ")) # keep the alphanumeric characters 
+care_uk_clean = as.data.frame(care_uk)
+
+
+library(plyr)
+
+names(care_uk_clean) <- gsub(".", " ", names(care_uk_clean))
+
+names(care_uk_clean)[1] <- "care_group"
+names(care_uk_clean)[2] <- "CH"
+names(care_uk_clean)[3] <- "ADC"
+names(care_uk_clean)[4] <- "ECH"
+names(care_uk_clean)[5] <- "MHH"
+names(care_uk_clean)[6] <- "ownership"
+
+
+care_uk_clean$care_group = with(care_uk_clean, str_trim(care_group, side = "both"))
+care_uk_clean$ownership = with(care_uk_clean, str_trim(ownership, side = "both"))
+
+write.csv(care_uk_clean, "care_uk.csv")
 
 
 
