@@ -11,7 +11,7 @@ I use Hadley´s Wickham excellent package `rvest` for obtaining the information 
 Two data.frames are created containing the names of the groups (`test_names`) and the respective capacity (`test_capacity`
 ). The capacity consists of various types of information that have to be split. 
 
-### 2 Create variables according to the types of premises
+### 2. Create variables according to the types of premises
 
 I aim to create a variable for every type of premise and the ownership corresponding to each group. There are four types of premises (CH, ADC, ECH and MHH) whereas the ownership may be (P, V, L, N). I use `dplyr`, `plyr` and `stringr` for carrying out all the manipulations. I do the analysis considering `test_names` and `test_capacity`independently. 
 
@@ -21,13 +21,13 @@ The information regarding the capacity is stored in one variable. I need to spli
 
 Then I create variables considering only the first two elements for each observation. This gives me most of the numbers referred to the capacity of each care home group. I need to double check some groups that have more than 99 facilities and therefore only the first two characters are captured. 
 
-I do * ownership* spliting `test_capacity` and renaming accordingly.
+I do ** ownership ** spliting `test_capacity` and renaming accordingly.
 
 `test_names`
 
 Some names have a rating at the end. Since I am not interested in these I create a general rule (`regex`) for removing them. The final purpose of this exercise is to compare this list of names with the list of care home groups provided by the CQC. `test_names` also contains information regarding other parts of the website. I also remove those rows because they are not used in the analysis. 
 
-##### 3 Link names and number and type of care homes
+#### 3. Link names and number and type of care homes
 
 The `data.frames` referred to the names, the capacity and the ownership have the same dimension. It is possible to merge them simply by `finaldf = data.frame(names, capacity, ownership)`
 
