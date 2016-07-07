@@ -4,14 +4,14 @@ This repository contains the code for scrapping information from a website. All 
 
 The analysis is done in three steps: 
 
-#####1. Scrap the website 
+###1. Scrap the website 
 
 I use Hadley´s Wickham excellent package `rvest` for obtaining the information from the web. For doing that it is necessary to identify the parts within the website that are interesting. I use [SelectorGadget](http://selectorgadget.com) for identifying the information that I want to retrieve. This enables to select those `CSS` parts in the web that are going to be analysed. Subsequently this information needs to be transformed into a `data.frame` to be manipulated and analysed. 
 
-I do this operation twice for getting the names of the groups (`test_names`) and their respective capacity (`test_capacity`
-). The information for the latter is stored in a single variable that I have to split.
+Two data.frames are created containing the names of the groups (`test_names`) and the respective capacity (`test_capacity`
+). The capacity consists of various types of information that have to be split. 
 
-##### 2 Create variables according to the types of premises
+### 2 Create variables according to the types of premises
 
 I aim to create a variable for every type of premise and the ownership corresponding to each group. There are four types of premises (CH, ADC, ECH and MHH) whereas the ownership may be (P, V, L, N). I use `dplyr`, `plyr` and `stringr` for carrying out all the manipulations. I do the analysis considering `test_names` and `test_capacity`independently. 
 
