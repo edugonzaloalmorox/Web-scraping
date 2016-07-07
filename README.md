@@ -21,7 +21,7 @@ The information regarding the capacity is stored in one variable. I need to spli
 
 Then I create variables considering only the first two elements for each observation. This gives me most of the numbers referred to the capacity of each care home group. I need to double check some groups that have more than 99 facilities and therefore only the first two characters are captured. 
 
-I do ** ownership ** spliting `test_capacity` and renaming accordingly.
+I do **ownership** spliting `test_capacity` and renaming accordingly.
 
 `test_names`
 
